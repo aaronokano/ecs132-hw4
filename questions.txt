@@ -1,0 +1,5 @@
+questions
+
+1. can we use simulation for problem 2?
+2. what's our problem with the chi-squared distribution?
+3. what to do for problem 3?

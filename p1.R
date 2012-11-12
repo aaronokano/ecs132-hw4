@@ -6,12 +6,12 @@ ssq <- function(n) {
 }
 
 P1 <- function(nreps) {
-    # run for length repetitions
-    tmp <- vector(length=100)
-    # s^2/sigma^2 is chi-squared w/ 10 df
-    print(pchisq(24.8/2^2,df=10))
-    # see proportion of s^2 < 24.8
-    print(mean(sapply(tmp,function(x) {ssq(1000)}) < 24.8))
+    # run for nreps repetitions
+    tmp <- vector(length=nreps)
+    # (n - 1)s^2/sigma^2 is chi-squared w/ 9 df
+    print(pchisq(9*4.8/4,df=9))
+    # see proportion of s^2 < 4.8
+    print(mean(sapply(tmp,function(x) {ssq(10)}) < 4.8))
 }
 
 P1(1000)

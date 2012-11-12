@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage[labelfont=bf]{caption}
+\usepackage[left=0.75in, top=1in, right=0.75in, bottom=1in]{geometry}
+\pagestyle{plain}
+\begin{document}
+\rhead{Aaron Okano, Anatoly Torchinsky, Samuel Huang, Justin Maple \\ 
+      ECS 132: Homework 4}
+\thispagestyle{fancy}
+
+% Let the homework begin!
+\section*{Problem 1}
+
+
+
+\section*{Problem 2}
+
+Let us begin by finding the variances of the two variables. First, note that
+the probability of choosing someone with the trait in the entire population is
+$P(T) = P(Sub_1,T\cup Sub_2,T) = qp_1 + ( 1 - q )p_2$, where $p_i$ is the
+probability of finding the trait in the $i$th population, $T$ is an indicator
+variable for the trait, and $Sub_i$ is an indicator for whether we are in
+subpopulation $i$ or not. Because $X$ consists of indicator random variables,
+we can easily find variance.
+\begin{align*}
+  Var(X) &= \frac{1}{n}\sigma^2 \\
+         &= \frac{1}{n}p(1-p) \\
+         &= \frac{1}{n}\left\{[qp_1 + (1-q)p_2][1 - qp_1 - (1-q)p_2]\right\}
+\end{align*}
+
+Now to find $Var(Y)$, let $S_1$ be the sampled number of people with the trait
+in population 1 and let $S_2$ be the sampled number of people with the trait in
+population 2.
+\begin{align*}
+  Var(Y) &= Var(S_1 + S_2) \\
+         &= \frac{1}{n^2}\sum\limits_{i = 1}^{n} Var( Y_i ) \\
+         &= \frac{1}{n^2}\left[qnVar( S_1 ) + (1-q)nVar( S_2 ) \right] \\
+         &= \frac{1}{n} [qVar( S_1 ) + (1-q)Var(S_2)] \\
+         &= \frac{1}{n} [qp_1(1-p_1) + (1-q)p_2(1-p_2)]
+\end{align*}
+
+We can also make the observation that, in the case of the problem at hand, $q =
+(1-q)$ and $p_1 = (1 - p_2)$. Finding $Var(Y)/Var(X)$ is a matter of algebra at
+this point.
+\begin{align*}
+  Var(Y)/Var(X) &= \frac{qp_1(1-p_1)+(1-q)p_2(1-p_2)}{[qp_1+(1-q)p_2]
+[1-qp_1-(1-q)p_2]} \\
+&= \frac{qp_1p_2 + qp_2p_1}{[qp_1+q(1-p_1)][1-qp_1+q(1-p_1)]} \\
+&= \frac{2qp_1p_2}{q(1-q)} \\
+&= \frac{2p_1p_2}{q}
+\end{align*}
+
+Plugging in our values for $p_1$, $p_2$, and $q$, we get
+\begin{equation*}
+  Var(Y)/Var(X) = 0.75
+\end{equation*}
+
+\section*{Problem 3}
+
+\end{document}

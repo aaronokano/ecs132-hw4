@@ -1,8 +1,15 @@
-P3 <- function(nreps,p1,p2,p3) {
-    X <- sample(0:1,nreps,replace=TRUE,prob=c(p1,1-p1))
-    Y <- sample(0:1,nreps,replace=TRUE,prob=c(p2,1-p2))
-    Z <- sample(0:1,nreps,replace=TRUE,prob=c(p3,1-p3))
-    print(mean(Z > 2*X*Y))
+P3samples <- function(nsamples,p1,p2,p3) {
+    X <- sum(sample(0:1,nsamples,replace=TRUE,prob=c(1-p1,p1)))
+    Y <- sum(sample(0:1,nsamples,replace=TRUE,prob=c(1-p2,p2)))
+    Z <- sum(sample(0:1,nsamples,replace=TRUE,prob=c(1-p3,p3)))
+    #print(mean(Z > 2*X*Y))
+    return( Z > 2*X*Y )
 }
 
-P3(1000,0.11,0.16,0.05)
+P3 <- function(nreps) {
+  f = vector( length=nreps )
+  P <- sapply( f, function(x) P3samples(15,0.11,0.16,0.05) )
+  length( P[ P ] ) / nreps
+}
+
+P3( 10000 )

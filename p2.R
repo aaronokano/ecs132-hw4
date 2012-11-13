@@ -17,8 +17,6 @@ P2 <- function(nreps) {
     Y <- vector(length=nreps)
     X <- sapply(X, function(x) {X(1000,0.25,0.75)})
     Y <- sapply(Y, function(y) {Y(1000,.5,0.25,0.75)})
-    print(var(X))
-    print(var(Y))
     print(var(Y)/var(X))
 }
 

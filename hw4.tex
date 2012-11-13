@@ -15,21 +15,26 @@
 
 % Let the homework begin!
 \section*{Problem 1}
-First we obtained the X^2 value by using the
-\begin{verbatim}
-pchisq(9*4.8/4,df=9)
-\end{verbatim}
-This gave us a value that chisq value of 0.7103325. Then we used normal distribution to find $P( S^2 > 4.8 )$ . To calculate the value of S^2 we used
+\subsection*{(a)}
+
+First we obtained the $\chi^{2}$ proportion $P(s^{2} < 4.8)$ by using \verb+pchisq(9*4.8/4,df=9)+, which gave us a value of 0.7103325. Then we used normal distribution to simulate $P( s^{2} < 4.8 )$ . First, we sampled $n$ variates of the normal distribution with $\sigma = 2$ and found the following variance $s^{2}$:
+
 \begin{align*}
-  S^2 &= \int_{1}^{n} \frac{1}{t^2} dt \\
+  s^2 &= \frac{1}{n} \displaystyle\sum\limits_{i=1}^n (X_{i}- \bar{X})^{2} \\
 \end{align*}
+
+Then, we repeated the first process and found the proportion of variances that were less than 4.8. This proportion turned out to be around .76, which was close to the value we obtained using the $\chi^{2}$ proportion.
+
+\subsection*{(b)}
+
+Similar to our variate sampling in part a, except using an exponential distribution. We found the proportion of variances calculated to be $\approx 1$.
 
 \section*{Problem 2}
 
 Let us begin by finding the variances of the two variables. First, note that
 the probability of choosing someone with the trait in the entire population is
 $P(T) = P(Sub_1,T\cup Sub_2,T) = qp_1 + ( 1 - q )p_2$, where $p_i$ is the
-probability of finding the trait in the $i$th population, $T$ is an indicator
+probability of finding the trait in the $i^{th}$ population, $T$ is an indicator
 variable for the trait, and $Sub_i$ is an indicator for whether we are in
 subpopulation $i$ or not. Because $X$ consists of indicator random variables,
 we can easily find variance.
@@ -67,5 +72,6 @@ Plugging in our values for $p_1$, $p_2$, and $q$, we get
 \end{equation*}
 
 \section*{Problem 3}
+First we sampled each of the $X,Y,Z$ proportions 15 times with probabilities $p1=0.11, p2=0.16, p3=0.05$ respectively. We then found whether $Z > 2XY$ for a number of iterations, and found that the proportion of times that the array has \verb+TRUE+ values is $\approx 0.46$.
 
 \end{document}

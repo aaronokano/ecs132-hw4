@@ -20,8 +20,8 @@ P1 <- function(nreps) {
     # proportion of s^2 < 4.8
     res1 <- mean(sapply(tmp,function(x) {ssq1(10)}) < 4.8)
     res2 <- mean(sapply(tmp,function(x) {ssq2(10)}) < 4.8)
-    cat('Part A:\t',chi,'\t',res1,'\n')
-    cat('Part B:\t',res2,'\n')
+    cat('Part A:',chi,'\t',res1,'\n')
+    cat('Part B:',res2,'\n')
 }
 
 P1(1000)
